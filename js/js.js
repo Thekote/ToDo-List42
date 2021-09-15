@@ -12,7 +12,7 @@ function newToDo() {
     }
     document.getElementById("description").value = "";
 
-    var span = document.createElement("span");
+    var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
@@ -31,7 +31,7 @@ function newToDo() {
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function (e) {
-    if (e.target.tagName === 'li') {
+    if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
     }
 }, false);
@@ -39,10 +39,10 @@ list.addEventListener('click', function (e) {
 
 // Close btn for each toDo
 
-var todoList = document.getElementsByTagName("li");
+var todoList = document.getElementsByTagName("LI");
 var c;
 for (c = 0; c < todoList; c++) {
-    var span = document.createElement("span");
+    var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);

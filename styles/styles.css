@@ -71,7 +71,7 @@
   
   /* Style the header */
   .header {
-    background-color: #f44336;
+    background-color: #000000;
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -110,5 +110,5 @@
   }
   
   .addBtn:hover {
-    background-color: #bbb;
+    background-color: #4CAF50;
   }
