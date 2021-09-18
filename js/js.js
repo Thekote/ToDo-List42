@@ -3,14 +3,18 @@
 function newToDo() {
     var li = document.createElement("li");
     var inputValue = document.getElementById("description").value;
+    var inputDate = document.getElementById("dueDate").value;
     var t = document.createTextNode(inputValue);
+    var d = document.createTextNode(inputDate);
     li.appendChild(t);
-    if (inputValue === '') {
-        alert("Descrição não pode ser vazia!!");
+    li.appendChild(d);
+    if (inputValue === '' || inputDate === '') {
+        alert("Descrição ou Deadline não podem ser vazios!!");
     } else {
         document.getElementById("todoList").appendChild(li);
     }
     document.getElementById("description").value = "";
+    document.getElementById("dueDate").value = "";
 
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
