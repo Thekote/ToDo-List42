@@ -1,17 +1,18 @@
 // Create a new toDo
 
 function newToDo() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("description").value;
-    var inputDate = document.getElementById("dueDate").value;
-    var t = document.createTextNode(inputValue);
-    var d = document.createTextNode(inputDate);
-    li.appendChild(t);
-    li.appendChild(d);
-    if (inputValue === '' || inputDate === '') {
+    const todo = {
+        description : document.getElementById("description").value,
+        dueDate : document.getElementById("dueDate").value
+    }
+    if (todo.description === '' || todo.dueDate === '') {
         alert("Descrição ou Deadline não podem ser vazios!!");
     } else {
+        var li = document.createElement("li");
+        document.createTextNode(JSON.stringify(todo));
+        li.append(todo.description, todo.dueDate);
         document.getElementById("todoList").appendChild(li);
+        // window.localStorage.setItem('todo', JSON.stringify(todo));
     }
     document.getElementById("description").value = "";
     document.getElementById("dueDate").value = "";
@@ -28,6 +29,7 @@ function newToDo() {
             div.style.display = "none";
         }
     }
+    
 }
 
 
