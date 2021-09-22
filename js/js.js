@@ -1,10 +1,16 @@
+let todos = [];
+const todo = {
+    description: "", 
+    dueDate: ""
+}
+
+
 // Create a new toDo
 
 function newToDo() {
-    const todo = {
-        description : document.getElementById("description").value,
-        dueDate : document.getElementById("dueDate").value
-    }
+    todo.description = document.getElementById("description").value;
+    todo.dueDate = document.getElementById("dueDate").value;
+    
     if (todo.description === '' || todo.dueDate === '') {
         alert("Descrição ou Deadline não podem ser vazios!!");
     } else {
@@ -12,8 +18,14 @@ function newToDo() {
         document.createTextNode(JSON.stringify(todo));
         li.append(todo.description, todo.dueDate);
         document.getElementById("todoList").appendChild(li);
-        // window.localStorage.setItem('todo', JSON.stringify(todo));
+        todos.push(todo);
+        window.localStorage.setItem('todos', JSON.stringify(todos));
+        
     }
+    
+    console.log(todos);
+
+    // Clear ToDo Form Fields
     document.getElementById("description").value = "";
     document.getElementById("dueDate").value = "";
 
