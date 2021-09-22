@@ -1,16 +1,33 @@
+let todos = [];
+const todo = {
+    description: "", 
+    dueDate: ""
+}
+
+
 // Create a new toDo
 
 function newToDo() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("description").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-        alert("Descrição não pode ser vazia!!");
+    todo.description = document.getElementById("description").value;
+    todo.dueDate = document.getElementById("dueDate").value;
+    
+    if (todo.description === '' || todo.dueDate === '') {
+        alert("Descrição ou Deadline não podem ser vazios!!");
     } else {
+        var li = document.createElement("li");
+        document.createTextNode(JSON.stringify(todo));
+        li.append(todo.description, todo.dueDate);
         document.getElementById("todoList").appendChild(li);
+        todos.push(todo);
+        window.localStorage.setItem('todos', JSON.stringify(todos));
+        
     }
+    
+    console.log(todos);
+
+    // Clear ToDo Form Fields
     document.getElementById("description").value = "";
+    document.getElementById("dueDate").value = "";
 
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
@@ -24,6 +41,7 @@ function newToDo() {
             div.style.display = "none";
         }
     }
+    
 }
 
 
