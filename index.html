@@ -9,19 +9,23 @@
     <title>ToDo List</title>
 
 </head>
-
 <body>
-    <div id="todo" class="container">
+    <div class="container">
         <h1>ToDo List</h1>
-        <input type="text" id="description" placeholder="Description">
-        <input type="date" name="deadline" id="dueDate">
-        <span onclick="newToDo()" class="addBtn">Adicionar Tarefa</span>
+        <form class="todo-form">
+            <input autofocus type="text" aria-label="Enter a new todo item" placeholder="Create a new Task"
+                class="js-todo-input">
+            <!-- <input type="date" class="dueDate"> -->
+        </form>
+        <div>
+            <ul class="todo-list js-todo-list ">
+
+            </ul>
+        </div>
+
     </div>
 
-    <ul id="todoList">
-
-    </ul>
-    <script src="js/js.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
