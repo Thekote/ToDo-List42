@@ -3,7 +3,10 @@ let todos = [];
 // Save toDo to Local Storage
 function saveTodo(todo) {
     localStorage.setItem('todos', JSON.stringify(todos));
+   
+}
 
+function renderTodo(todo){   
     const list = document.querySelector('.js-todo-list');
     const item = document.querySelector(`[data-key='${todo.id}]`);
 
@@ -12,7 +15,7 @@ function saveTodo(todo) {
         if (todos.length === 0) list.innerHTML = '';
         return
     }
-
+    
     const isChecked = todo.checked ? 'done': '';
     const li = document.createElement("li");
     li.setAttribute('class', `todo-item ${isChecked}`);
@@ -43,13 +46,15 @@ function addTodo(description) {
     };
     todos.push(todo);
     saveTodo(todo);
+    renderTodo(todo);
 }
 
 
 function toggleCompleted(key) {
     const index = todos.findIndex(item => item.id === Number(key));
     todos[index].checked = !todos[index].checked;
-    saveTodo(todos[index]);
+    addTodo(todos[index]);
+    renderTodo(todos[index]);
 }
 
 
@@ -60,7 +65,8 @@ function deleteTodo(key) {
         ...todos[index]
     };
     todos = todos.filter(item => item.id !== Number(key));
-    saveTodo(todo);
+    addTodo(todo);
+    renderTodo(todo);
 }
 
 const form = document.querySelector('.todo-form');
@@ -96,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ref) {
         todos = JSON.parse(ref);
         todos.forEach(t => {
-            saveTodo(t);
+            renderTodo(t);
         });
     }
 });
