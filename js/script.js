@@ -20,15 +20,13 @@ function renderTodo(todo){
     const li = document.createElement("li");
     li.setAttribute('class', `todo-item ${isChecked}`);
     li.setAttribute('data-key', todo.id);
-    //li.setAttribute('due-date', todo.dueDate);
     li.innerHTML = `
-    <li class="todo-item">
         <div class="todo-description">
             <input id="${todo.id}" type="checkbox"/></button>
             <label for="${todo.id}" class="tick js-tick">${todo.description}</label>
         </div>
         <button class="todo-delete-button">X</button>
-    </li>`;
+    `;
     
     if (item) {
         list.replaceChild(li, item);
@@ -42,7 +40,6 @@ function addTodo(description) {
         description,
         checked: false,
         id: Date.now(),
-        //dueDate,
     };
     todos.push(todo);
     saveTodo(todo);
