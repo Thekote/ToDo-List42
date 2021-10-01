@@ -25,7 +25,7 @@ function renderTodo(todo){
             <input id="${todo.id}" type="checkbox"/></button>
             <label for="${todo.id}" class="tick js-tick">${todo.description}</label>
         </div>
-        <button class="todo-delete-button">X</button>
+        <button class="todo-delete-button">×</button>
     `;
     
     if (item) {
