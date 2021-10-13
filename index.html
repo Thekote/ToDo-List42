@@ -9,18 +9,23 @@
     <title>ToDo List</title>
 
 </head>
-
 <body>
-    <div id="todo" class="header">
-        <h2>ToDo List</h2>
-        <input type="text" id="description" placeholder="Description">
-        <span onclick="newToDo()" class="addBtn">Adicionar Tarefa</span>
+    <div class="container">
+        <h1>ToDo List</h1>
+        <form class="todo-form">
+            <input autofocus type="text" aria-label="Enter a new todo item" placeholder="Create a new Task"
+                class="js-todo-input"><button class="addBtn" type="submit">Add</button>
+            
+        </form>
+        <div>
+            <ul class="todo-list js-todo-list ">
+
+            </ul>
+        </div>
+
     </div>
 
-    <ul id="todoList">
-
-    </ul>
-    <script src="js/js.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
